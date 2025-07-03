@@ -37,17 +37,80 @@ Install Tesseract-OCR manually for your OS:
 Download and install from: https://github.com/UB-Mannheim/tesseract/wiki
 
 Then set the Tesseract path in your code:
+
 ```python
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-
-# 1. Clone the repo
+```
+1. Clone the repo
 git clone https://github.com/your-username/sahaayika.git
 cd sahaayika
 
-# 2. Create a virtual environment (optional)
+2. Create a virtual environment (optional)
 python -m venv venv
 source venv/bin/activate       # On Linux/Mac
 venv\Scripts\activate          # On Windows
 
-# 3. Install Python dependencies
+3. Install dependencies
 pip install -r requirements.txt
+
+Run the App
+python app.py
+This will launch the Gradio interface in your browser.
+
+Docker Setup (Optional)
+If you want to run Sahaayika inside a Docker container:
+
+1. Build the Docker image:
+docker build -t sahaayika-app .
+3. Run the container
+docker run -p 7860:7860 sahaayika-app
+
+Then open http://localhost:7860 in your browser.
+
+sahaayika/
+│
+├── app.py                  # Main application logic
+├── requirements.txt        # Python dependencies
+├── Dockerfile              # Docker container setup (optional)
+├── assets/                 # Sample images or test files
+└── README.md               # You are here!
+
+Sample Use Case
+Upload a photo of a form or handwritten note.
+
+Select your profile and preferred language.
+
+Listen to the translated text in your language.
+
+Optionally speak a question — Sahaayika will respond.
+
+###Limitations & Future Work
+OCR depends on image quality
+
+TTS may take 2–3 seconds for output
+
+Currently online TTS (gTTS) is used – to be replaced with offline option in future
+
+Future: tone customization based on profile (e.g. formal/informal voices)
+
+Acknowledgements
+Built as part of the Kaggle Hackathon / Gemma 3n Challenge
+
+Special thanks to open-source tools: Tesseract, Gradio, gTTS, and Deep Translator
+
+License
+This project is open-sourced under the MIT License.
+
+Contributing
+Contributions are welcome! Feel free to fork the repo, create an issue, or submit a pull request.
+
+Let's Connect
+If you liked this project, feel free to give it a star ⭐ and share it with your network!
+
+Let me know if you want:
+- The Dockerfile to match this
+- A fancy GitHub banner or badges
+- Links filled in automatically
+
+You’re officially **repo-ready** 💪✨
+
